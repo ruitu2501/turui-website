@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>TURUI · 网页动效</title>
+  <style>
+    :root { --ink:#141414; --paper:#f4f3ef; --muted:#6e6c66; --line:#dddcd6; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
+    }
+    nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      border-bottom: 1px solid var(--line);
+      gap: 16px;
+    }
+    nav .mark { width: 36px; height: 36px; }
+    nav .word { width: 140px; height: 36px; display: flex; align-items: center; }
+    nav .word svg { width: 140px; height: auto; }
+    .links { margin-left: auto; display: flex; gap: 28px; font-size: 13px; letter-spacing: .18em; color: var(--muted); }
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px 80px;
+      text-align: center;
+    }
+    .kicker {
+      font-size: 12px;
+      letter-spacing: .42em;
+      color: var(--muted);
+      margin: 0 0 36px;
+      font-weight: 300;
+    }
+    .lockup { width: min(520px, 86vw); }
+    .lockup svg { width: 100%; height: auto; display: block; }
+    button {
+      margin-top: 48px;
+      background: none;
+      border: 1px solid #c8c6c0;
+      color: var(--ink);
+      padding: 8px 18px;
+      font-size: 12px;
+      letter-spacing: .18em;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--ink); }
+    section.dark {
+      background: #121212;
+      color: #f4f3ef;
+      padding: 96px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    section.dark .lockup { width: min(420px, 80vw); }
+    section.dark button { color: #f4f3ef; border-color: #3a3a3a; }
+    section.dark button:hover { border-color: #f4f3ef; }
+    .note {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      font-family: "Noto Sans SC", "Source Han Sans SC", sans-serif;
+    }
+    .note h2 {
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: .12em;
+      color: var(--ink);
+    }
+    .note code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      background: #eceae4;
+      padding: 1px 5px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="mark" id="nav-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="TURUI">
+  <title>TURUI</title>
+  <style>
+    .m-l, .m-r {
+      animation: m-openL 2.4s cubic-bezier(.22,.61,.36,1) forwards;
+    }
+    .m-r { animation-name: m-openR; }
+    .m-cut {
+      fill: none;
+      stroke: #f4f3ef;
+      stroke-width: 2.2;
+      stroke-linecap: square;
+      stroke-dasharray: 124.62;
+      stroke-dashoffset: 124.62;
+      animation: m-draw 1.0s cubic-bezier(.22,.61,.36,1) forwards,
+                 m-fade 0.55s ease 0.95s forwards;
+    }
+    @keyframes m-openL {
+      0%, 30% { transform: translate(3.004px, -0.841px); }
+      82% { transform: translate(-0.481px, 0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes m-openR {
+      0%, 30% { transform: translate(-3.004px, 0.841px); }
+      82% { transform: translate(0.481px, -0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes m-draw { to { stroke-dashoffset: 0; } }
+    @keyframes m-fade { to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .m-l, .m-r, .m-cut, .m-letter {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .m-cut { opacity: 0 !important; }
+    }
+  </style>
+
+  <g class="m-l"><polygon points="40.000,40.000 79.960,40.000 113.560,160.000 40.000,160.000" fill="#141414"/></g>
+  <g class="m-r"><polygon points="86.440,40.000 160.000,40.000 160.000,160.000 120.040,160.000" fill="#141414"/></g>
+  <line class="m-cut" x1="83.200" y1="40.000" x2="116.800" y2="160.000"/>
+</svg>
+</div>
+    <div class="links"><span>作品</span><span>关于</span><span>联系</span></div>
+  </nav>
+  <section class="hero">
+    <p class="kicker">摄影  ·  剪辑  ·  创作</p>
+    <div class="lockup" id="hero-light"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 484.8 200" role="img" aria-label="TURUI">
+  <title>TURUI</title>
+  <style>
+    .lk-l, .lk-r {
+      animation: lk-openL 2.4s cubic-bezier(.22,.61,.36,1) forwards;
+    }
+    .lk-r { animation-name: lk-openR; }
+    .lk-cut {
+      fill: none;
+      stroke: #f4f3ef;
+      stroke-width: 2.2;
+      stroke-linecap: square;
+      stroke-dasharray: 124.62;
+      stroke-dashoffset: 124.62;
+      animation: lk-draw 1.0s cubic-bezier(.22,.61,.36,1) forwards,
+                 lk-fade 0.55s ease 0.95s forwards;
+    }
+    @keyframes lk-openL {
+      0%, 30% { transform: translate(3.004px, -0.841px); }
+      82% { transform: translate(-0.481px, 0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes lk-openR {
+      0%, 30% { transform: translate(-3.004px, 0.841px); }
+      82% { transform: translate(0.481px, -0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes lk-draw { to { stroke-dashoffset: 0; } }
+    @keyframes lk-fade { to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .lk-l, .lk-r, .lk-cut, .lk-letter {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .lk-cut { opacity: 0 !important; }
+    }
+    .lk-letter {
+      opacity: 0;
+      transform: translate(8px, 0);
+      animation: lk-in 0.85s cubic-bezier(.22,.61,.36,1) forwards;
+    }
+    @keyframes lk-in {
+      to { opacity: 1; transform: translate(0, 0); }
+    }
+  </style>
+
+  <g class="lk-l"><polygon points="40.000,40.000 79.960,40.000 113.560,160.000 40.000,160.000" fill="#141414"/></g>
+  <g class="lk-r"><polygon points="86.440,40.000 160.000,40.000 160.000,160.000 120.040,160.000" fill="#141414"/></g>
+  <line class="lk-cut" x1="83.200" y1="40.000" x2="116.800" y2="160.000"/>
+  <g>
+    <g class="lk-letter" style="animation-delay:0.95s"><path d="M251.444 128.000H246.962V90.740H237.620V90.200H260.840V90.740H251.444Z" fill="#141414"/></g>
+    <g class="lk-letter" style="animation-delay:1.05s"><path d="M308.414 90.200H309.116V111.800Q309.116 120.278 305.768 124.247Q302.420 128.216 297.020 128.216Q293.618 128.216 291.242 127.595Q288.866 126.974 286.760 125.300Q282.440 121.952 282.440 111.800V90.200H286.922V111.746Q286.922 121.574 289.892 124.868Q291.404 126.488 293.051 127.082Q294.698 127.676 297.020 127.676Q302.204 127.676 305.309 123.869Q308.414 120.062 308.414 111.746Z" fill="#141414"/></g>
+    <g class="lk-letter" style="animation-delay:1.15s"><path d="M332.606 90.632Q338.870 90.200 343.676 90.200Q357.014 90.200 357.014 99.110Q357.014 102.890 355.178 105.860Q353.342 108.830 348.860 109.802L359.660 128.000H354.638L344.054 110.126H337.088V128.000H332.606ZM343.676 90.740Q340.544 90.740 337.088 91.118V109.586H345.080Q352.694 109.262 352.694 99.218Q352.694 95.114 350.426 92.927Q348.158 90.740 343.676 90.740Z" fill="#141414"/></g>
+    <g class="lk-letter" style="animation-delay:1.25s"><path d="M407.234 90.200H407.936V111.800Q407.936 120.278 404.588 124.247Q401.240 128.216 395.840 128.216Q392.438 128.216 390.062 127.595Q387.686 126.974 385.580 125.300Q381.260 121.952 381.260 111.800V90.200H385.742V111.746Q385.742 121.574 388.712 124.868Q390.224 126.488 391.871 127.082Q393.518 127.676 395.840 127.676Q401.024 127.676 404.129 123.869Q407.234 120.062 407.234 111.746Z" fill="#141414"/></g>
+    <g class="lk-letter" style="animation-delay:1.35s"><path d="M431.426 90.740V90.200H441.038V90.740H438.392V127.460H441.038V128.000H431.426V127.460H433.910V90.740Z" fill="#141414"/></g>
+  </g>
+</svg>
+</div>
+    <button type="button" id="replay-light">再播一次</button>
+  </section>
+  <section class="dark">
+    <p class="kicker" style="color:#8a8984">摄影  ·  剪辑  ·  创作</p>
+    <div class="lockup" id="hero-dark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 484.8 200" role="img" aria-label="TURUI">
+  <title>TURUI</title>
+  <style>
+    .lk-l, .lk-r {
+      animation: lk-openL 2.4s cubic-bezier(.22,.61,.36,1) forwards;
+    }
+    .lk-r { animation-name: lk-openR; }
+    .lk-cut {
+      fill: none;
+      stroke: #121212;
+      stroke-width: 2.2;
+      stroke-linecap: square;
+      stroke-dasharray: 124.62;
+      stroke-dashoffset: 124.62;
+      animation: lk-draw 1.0s cubic-bezier(.22,.61,.36,1) forwards,
+                 lk-fade 0.55s ease 0.95s forwards;
+    }
+    @keyframes lk-openL {
+      0%, 30% { transform: translate(3.004px, -0.841px); }
+      82% { transform: translate(-0.481px, 0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes lk-openR {
+      0%, 30% { transform: translate(-3.004px, 0.841px); }
+      82% { transform: translate(0.481px, -0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes lk-draw { to { stroke-dashoffset: 0; } }
+    @keyframes lk-fade { to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .lk-l, .lk-r, .lk-cut, .lk-letter {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .lk-cut { opacity: 0 !important; }
+    }
+    .lk-letter {
+      opacity: 0;
+      transform: translate(8px, 0);
+      animation: lk-in 0.85s cubic-bezier(.22,.61,.36,1) forwards;
+    }
+    @keyframes lk-in {
+      to { opacity: 1; transform: translate(0, 0); }
+    }
+  </style>
+
+  <g class="lk-l"><polygon points="40.000,40.000 79.960,40.000 113.560,160.000 40.000,160.000" fill="#f4f3ef"/></g>
+  <g class="lk-r"><polygon points="86.440,40.000 160.000,40.000 160.000,160.000 120.040,160.000" fill="#f4f3ef"/></g>
+  <line class="lk-cut" x1="83.200" y1="40.000" x2="116.800" y2="160.000"/>
+  <g>
+    <g class="lk-letter" style="animation-delay:0.95s"><path d="M251.444 128.000H246.962V90.740H237.620V90.200H260.840V90.740H251.444Z" fill="#f4f3ef"/></g>
+    <g class="lk-letter" style="animation-delay:1.05s"><path d="M308.414 90.200H309.116V111.800Q309.116 120.278 305.768 124.247Q302.420 128.216 297.020 128.216Q293.618 128.216 291.242 127.595Q288.866 126.974 286.760 125.300Q282.440 121.952 282.440 111.800V90.200H286.922V111.746Q286.922 121.574 289.892 124.868Q291.404 126.488 293.051 127.082Q294.698 127.676 297.020 127.676Q302.204 127.676 305.309 123.869Q308.414 120.062 308.414 111.746Z" fill="#f4f3ef"/></g>
+    <g class="lk-letter" style="animation-delay:1.15s"><path d="M332.606 90.632Q338.870 90.200 343.676 90.200Q357.014 90.200 357.014 99.110Q357.014 102.890 355.178 105.860Q353.342 108.830 348.860 109.802L359.660 128.000H354.638L344.054 110.126H337.088V128.000H332.606ZM343.676 90.740Q340.544 90.740 337.088 91.118V109.586H345.080Q352.694 109.262 352.694 99.218Q352.694 95.114 350.426 92.927Q348.158 90.740 343.676 90.740Z" fill="#f4f3ef"/></g>
+    <g class="lk-letter" style="animation-delay:1.25s"><path d="M407.234 90.200H407.936V111.800Q407.936 120.278 404.588 124.247Q401.240 128.216 395.840 128.216Q392.438 128.216 390.062 127.595Q387.686 126.974 385.580 125.300Q381.260 121.952 381.260 111.800V90.200H385.742V111.746Q385.742 121.574 388.712 124.868Q390.224 126.488 391.871 127.082Q393.518 127.676 395.840 127.676Q401.024 127.676 404.129 123.869Q407.234 120.062 407.234 111.746Z" fill="#f4f3ef"/></g>
+    <g class="lk-letter" style="animation-delay:1.35s"><path d="M431.426 90.740V90.200H441.038V90.740H438.392V127.460H441.038V128.000H431.426V127.460H433.910V90.740Z" fill="#f4f3ef"/></g>
+  </g>
+</svg>
+</div>
+    <button type="button" id="replay-dark">再播一次</button>
+  </section>
+  <div class="note">
+    <h2>网页用法</h2>
+    <p>请把 <code>svg/lockup-animated.svg</code>（浅底）或 <code>svg/lockup-animated-on-dark.svg</code>（深底）的内容直接内联进网页，不要用 <code>&lt;img&gt;</code> 引用——内联后 CSS 动效才能播放，也可以按需重播。导航栏小标志用 <code>svg/mark-animated.svg</code>。</p>
+    <p>如果必须用图片标签，请改用配套的 GIF（<code>png/anim-lockup-light.gif</code> / <code>anim-lockup-dark.gif</code>）。系统开启「减少动态效果」时，SVG 会直接显示最终静止状态。</p>
+  </div>
+  <script>
+    function replay(id) {
+      const stage = document.getElementById(id);
+      const html = stage.innerHTML;
+      stage.innerHTML = "";
+      stage.innerHTML = html;
+    }
+    document.getElementById("replay-light").addEventListener("click", () => {
+      replay("hero-light"); replay("nav-mark");
+    });
+    document.getElementById("replay-dark").addEventListener("click", () => replay("hero-dark"));
+  </script>
+</body>
+</html>

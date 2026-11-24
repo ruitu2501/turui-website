@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="TURUI">
+  <title>TURUI</title>
+  <style>
+    .m-l, .m-r {
+      animation: m-openL 2.4s cubic-bezier(.22,.61,.36,1) forwards;
+    }
+    .m-r { animation-name: m-openR; }
+    .m-cut {
+      fill: none;
+      stroke: #121212;
+      stroke-width: 2.2;
+      stroke-linecap: square;
+      stroke-dasharray: 124.62;
+      stroke-dashoffset: 124.62;
+      animation: m-draw 1.0s cubic-bezier(.22,.61,.36,1) forwards,
+                 m-fade 0.55s ease 0.95s forwards;
+    }
+    @keyframes m-openL {
+      0%, 30% { transform: translate(3.004px, -0.841px); }
+      82% { transform: translate(-0.481px, 0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes m-openR {
+      0%, 30% { transform: translate(-3.004px, 0.841px); }
+      82% { transform: translate(0.481px, -0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes m-draw { to { stroke-dashoffset: 0; } }
+    @keyframes m-fade { to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .m-l, .m-r, .m-cut, .m-letter {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .m-cut { opacity: 0 !important; }
+    }
+  </style>
+
+  <g class="m-l"><polygon points="40.000,40.000 79.960,40.000 113.560,160.000 40.000,160.000" fill="#f4f3ef"/></g>
+  <g class="m-r"><polygon points="86.440,40.000 160.000,40.000 160.000,160.000 120.040,160.000" fill="#f4f3ef"/></g>
+  <line class="m-cut" x1="83.200" y1="40.000" x2="116.800" y2="160.000"/>
+</svg>

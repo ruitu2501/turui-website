@@ -1,0 +1,14 @@
+<!-- TURUI 标志动效：把这段内联进网页（不要用 img 引用 SVG） -->
+<!-- 浅色背景用 lockup-animated.svg，深色背景用 lockup-animated-on-dark.svg -->
+<div class="turui-logo" style="width:240px" data-turui-logo>
+  <!-- 在此粘贴 svg/lockup-animated.svg 的全部内容 -->
+</div>
+<script>
+  // 如需重播（例如再次进入页面或点击标志）：
+  function replayTurui(el) {
+    const box = el.closest("[data-turui-logo]") || el;
+    const html = box.innerHTML;
+    box.innerHTML = "";
+    box.innerHTML = html;
+  }
+</script>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人简介 · 涂锐 TURUI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="page-resume">
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo" data-turui-logo aria-label="TURUI">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 484.8 200" role="img" aria-label="TURUI">
+  <title>TURUI</title>
+  <style>
+    .lk-l, .lk-r {
+      animation: lk-openL 2.4s cubic-bezier(.22,.61,.36,1) forwards;
+    }
+    .lk-r { animation-name: lk-openR; }
+    .lk-cut {
+      fill: none;
+      stroke: #f4f3ef;
+      stroke-width: 2.2;
+      stroke-linecap: square;
+      stroke-dasharray: 124.62;
+      stroke-dashoffset: 124.62;
+      animation: lk-draw 1.0s cubic-bezier(.22,.61,.36,1) forwards,
+                 lk-fade 0.55s ease 0.95s forwards;
+    }
+    @keyframes lk-openL {
+      0%, 30% { transform: translate(3.004px, -0.841px); }
+      82% { transform: translate(-0.481px, 0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes lk-openR {
+      0%, 30% { transform: translate(-3.004px, 0.841px); }
+      82% { transform: translate(0.481px, -0.135px); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes lk-draw { to { stroke-dashoffset: 0; } }
+    @keyframes lk-fade { to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .lk-l, .lk-r, .lk-cut, .lk-letter {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .lk-cut { opacity: 0 !important; }
+    }
+    .lk-letter {
+      opacity: 0;
+      transform: translate(8px, 0);
+      animation: lk-in 0.85s cubic-bezier(.22,.61,.36,1) forwards;
+    }
+    @keyframes lk-in {
+      to { opacity: 1; transform: translate(0, 0); }
+    }
+  </style>
+
+  <g class="lk-l"><polygon points="40.000,40.000 79.960,40.000 113.560,160.000 40.000,160.000" fill="#141414"/></g>
+  <g class="lk-r"><polygon points="86.440,40.000 160.000,40.000 160.000,160.000 120.040,160.000" fill="#141414"/></g>
+  <line class="lk-cut" x1="83.200" y1="40.000" x2="116.800" y2="160.000"/>
+  <g>
+    <g class="lk-letter" style="animation-delay:0.95s"><path d="M251.444 128.000H246.962V90.740H237.620V90.200H260.840V90.740H251.444Z" fill="#141414"/></g>
+    <g class="lk-letter" style="animation-delay:1.05s"><path d="M308.414 90.200H309.116V111.800Q309.116 120.278 305.768 124.247Q302.420 128.216 297.020 128.216Q293.618 128.216 291.242 127.595Q288.866 126.974 286.760 125.300Q282.440 121.952 282.440 111.800V90.200H286.922V111.746Q286.922 121.574 289.892 124.868Q291.404 126.488 293.051 127.082Q294.698 127.676 297.020 127.676Q302.204 127.676 305.309 123.869Q308.414 120.062 308.414 111.746Z" fill="#141414"/></g>
+    <g class="lk-letter" style="animation-delay:1.15s"><path d="M332.606 90.632Q338.870 90.200 343.676 90.200Q357.014 90.200 357.014 99.110Q357.014 102.890 355.178 105.860Q353.342 108.830 348.860 109.802L359.660 128.000H354.638L344.054 110.126H337.088V128.000H332.606ZM343.676 90.740Q340.544 90.740 337.088 91.118V109.586H345.080Q352.694 109.262 352.694 99.218Q352.694 95.114 350.426 92.927Q348.158 90.740 343.676 90.740Z" fill="#141414"/></g>
+    <g class="lk-letter" style="animation-delay:1.25s"><path d="M407.234 90.200H407.936V111.800Q407.936 120.278 404.588 124.247Q401.240 128.216 395.840 128.216Q392.438 128.216 390.062 127.595Q387.686 126.974 385.580 125.300Q381.260 121.952 381.260 111.800V90.200H385.742V111.746Q385.742 121.574 388.712 124.868Q390.224 126.488 391.871 127.082Q393.518 127.676 395.840 127.676Q401.024 127.676 404.129 123.869Q407.234 120.062 407.234 111.746Z" fill="#141414"/></g>
+    <g class="lk-letter" style="animation-delay:1.35s"><path d="M431.426 90.740V90.200H441.038V90.740H438.392V127.460H441.038V128.000H431.426V127.460H433.910V90.740Z" fill="#141414"/></g>
+  </g>
+</svg>
+      </a>
+      <nav class="nav">
+        <a href="index.html">首页</a>
+        <a href="index.html#work">作品</a>
+        <a href="index.html#about">关于</a>
+        <a href="resume.html" class="active">简介下载</a>
+        <a href="index.html#contact">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="resume-page">
+    <div class="container resume-inner">
+      <div class="section-heading">
+        <h1>个人简介</h1>
+        <p class="section-en">Profile</p>
+      </div>
+
+      <div class="resume-card">
+        <div class="resume-sheet-header">
+          <img src="assets/logo/svg/mark-small.svg" alt="" aria-hidden="true">
+          <div class="resume-sheet-header-text">
+            <span class="resume-sheet-title">个人简介</span>
+            <span class="resume-sheet-en">Profile · TURUI</span>
+          </div>
+        </div>
+
+        <div class="resume-main">
+          <p class="resume-name">涂锐 <span>/ TURUI</span></p>
+          <p class="resume-role">现场执行 · 内容与制作</p>
+          <p class="resume-lead">专注活动会场的影像执行与后期内容生产。从拍摄、直播到剪辑调色，并结合 AI 工具完成设计与文本协作，帮助品牌把现场与想法做成可发布、可投放的内容。</p>
+
+          <div class="resume-grid">
+            <div>
+              <h2>核心信息</h2>
+              <ul>
+                <li><strong>个人定位</strong>现场执行与内容制作</li>
+                <li><strong>服务客户</strong>美美咖、美亿齿、好享头域、面纪水光、湖北启航者营销策划有限公司等品牌与平台</li>
+                <li><strong>重点业务</strong>会场拍摄、实时直播、视频剪辑调色、个人 IP 打造与平台投放</li>
+                <li><strong>经验</strong>2019 年起从事摄影与剪辑，熟悉现场突发处理与多机位输出</li>
+              </ul>
+
+              <h2>现场执行</h2>
+              <ul>
+                <li>会场照片拍摄与多机位影像记录</li>
+                <li>活动实时直播与稳定输出</li>
+                <li>现场布光、设备调试与流程把控</li>
+                <li>直播过程中的突发情况处理</li>
+              </ul>
+            </div>
+            <div>
+              <h2>内容与后期</h2>
+              <ul>
+                <li>达芬奇视频剪辑与调色</li>
+                <li>短视频、宣传内容与成片交付</li>
+                <li>个人 IP 打造与抖音等主流平台投放逻辑</li>
+              </ul>
+
+              <h2>AI 与协作工具</h2>
+              <ul>
+                <li>熟悉最新 AI 资讯，常用 Grok、Cursor、ChatGPT、Codex</li>
+                <li>AI 辅助：视频封面设计、网页设计、会议纪要整理、PPT 制作、合同起草</li>
+                <li>AI 短剧全流程：剧本创作、人物资产、场景设计、分镜脚本、视频生成与后期剪辑调色</li>
+              </ul>
+
+              <h2>能力范围</h2>
+              <p>可独立完成从现场执行到后期制作的完整链路，并借助 AI 工具延伸设计、文案与短剧制作能力。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-bottom">
+          <div class="resume-contact">
+            <div class="resume-contact-text">
+              <h2>联系方式</h2>
+              <p><strong>电话</strong><a href="tel:19871574261">19871574261</a></p>
+              <p><strong>邮箱</strong><a href="mailto:960236412@qq.com">960236412@qq.com</a></p>
+            </div>
+            <div class="resume-contact-qr">
+              <img src="images/qr-wechat.png" alt="微信二维码" width="112" height="112">
+              <p class="resume-qr-caption">扫码添加</p>
+            </div>
+          </div>
+
+          <div class="resume-sheet-footer">
+            <p class="resume-sheet-footer-en">“The self is invisible. Only when it collides with something else and rebounds do you begin to understand it. So collide with what is strong, what is frightening, what is of a high standard—only then do you know what you are. That is the self.”</p>
+          </div>
+        </div>
+
+        <div class="resume-actions no-print">
+          <a class="btn-download" href="files/turui-resume.pdf" download="涂锐-个人简介.pdf" data-download-pdf>下载简介 PDF</a>
+          <a class="btn-ghost" href="index.html#contact">联系我</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-quote">「‘自己’这个东西是看不见的，撞上一些别的什么，反弹回来，才会了解‘自己’。所以跟很强的东西、可怕的东西、水准很高的东西相碰撞，然后才知道自己是什么，这才是自我。」</p>
+      <p class="footer-quote-en">“The self is invisible. Only when it collides with something else and rebounds do you begin to understand it. So collide with what is strong, what is frightening, what is of a high standard—only then do you know what you are. That is the self.”</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
