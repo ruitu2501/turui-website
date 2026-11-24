@@ -13,10 +13,9 @@
 - `videos/`：本地视频
 - `files/turui-resume.pdf`：简历 PDF
 
-## GitHub Pages 部署
+## 在线地址
 
-仓库启用 Pages 后，站点地址为：
+https://ruitu2501.github.io/turui-website/
 
-`https://你的用户名.github.io/仓库名/`
-
-当前仓库已配置从 `main` 分支根目录发布。
+仓库：https://github.com/ruitu2501/turui-website  
+GitHub Pages 从 `main` 分支根目录发布。
